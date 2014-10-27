@@ -8,9 +8,10 @@
     <include layout="@layout/toolbar"/>
 
     <Button
+        android:id="@+id/card"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/hello_world" />
+        android:text="@string/card_view" />
 
     <CheckBox
         android:layout_width="match_parent"
@@ -118,5 +119,6 @@
             android:layout_height="wrap_content"
             android:layout_gravity="right" />
     </LinearLayout>
+
 
 </LinearLayout>

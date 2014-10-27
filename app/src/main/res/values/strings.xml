@@ -9,4 +9,8 @@
         <item>Hello world!</item>
         <item>Hello world!</item>
     </string-array>
+
+    <string name="title_activity_card">CardActivity</string>
+    <string name="card_view">CardView</string>
+
 </resources>
