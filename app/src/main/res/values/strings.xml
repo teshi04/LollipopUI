@@ -10,7 +10,7 @@
         <item>Hello world!</item>
     </string-array>
 
-    <string name="title_activity_card">CardActivity</string>
-    <string name="card_view">CardView</string>
+    <string name="title_activity_recycler_view">RecyclerView</string>
+    <string name="recycler_view">Recycler View</string>
 
 </resources>

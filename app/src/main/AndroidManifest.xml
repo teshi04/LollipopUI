@@ -17,8 +17,8 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="jp.tsur.lollipopui.CardActivity"
-            android:label="@string/title_activity_card" >
+            android:name="jp.tsur.lollipopui.RecyclerViewActivity"
+            android:label="@string/title_activity_recycler_view" >
         </activity>
     </application>
 
