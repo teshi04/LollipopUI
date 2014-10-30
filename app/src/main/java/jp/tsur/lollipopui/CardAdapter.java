@@ -7,9 +7,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
 public class CardAdapter extends android.support.v7.widget.RecyclerView.Adapter<CardAdapter.ViewHolder> {
 
-    private String[] mDataset;
+    private ArrayList<String> mDataset;
 
     // Provide a reference to the views for each data item
     // Complex data items may need more than one view per item, and
@@ -29,7 +31,7 @@ public class CardAdapter extends android.support.v7.widget.RecyclerView.Adapter<
     }
 
     // Provide a suitable constructor (depends on the kind of dataset)
-    public CardAdapter(String[] myDataset) {
+    public CardAdapter(ArrayList<String> myDataset) {
         mDataset = myDataset;
     }
 
@@ -48,16 +50,38 @@ public class CardAdapter extends android.support.v7.widget.RecyclerView.Adapter<
 
     // Replace the contents of a view (invoked by the layout manager)
     @Override
-    public void onBindViewHolder(ViewHolder holder, int position) {
+    public void onBindViewHolder(final ViewHolder holder, final int position) {
         // - get element from your dataset at this position
         // - replace the contents of the view with that elemen
-        holder.getmTextView().setText(mDataset[position]);
+        holder.getmTextView().setText(mDataset.get(position));
+        holder.getmTextView().setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                remove(holder.getPosition());
+                return false;
+            }
+        });
 
     }
 
     // Return the size of your dataset (invoked by the layout manager)
     @Override
     public int getItemCount() {
-        return mDataset.length;
+        return mDataset.size();
+    }
+
+    public void add(String item) {
+        mDataset.add(item);
+        notifyItemInserted(mDataset.size());
+    }
+
+    public void insert(String item, int position) {
+        mDataset.add(position, item);
+        notifyItemInserted(position);
+    }
+
+    public void remove(int position) {
+        mDataset.remove(position);
+        notifyItemRemoved(position);
     }
 }

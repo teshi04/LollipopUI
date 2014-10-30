@@ -9,10 +9,14 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import java.util.ArrayList;
+
 
 public class RecyclerViewActivity extends ActionBarActivity {
 
     protected String[] mDataset;
+    private CardAdapter mAdapter;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,7 +45,12 @@ public class RecyclerViewActivity extends ActionBarActivity {
         initDataset();
 
         // specify an adapter (see also next example)
-        RecyclerView.Adapter mAdapter = new CardAdapter(mDataset);
+        ArrayList<String> strings = new ArrayList<String>();
+        strings.add("element");
+        strings.add("element");
+        strings.add("element");
+
+        mAdapter = new CardAdapter(strings);
         mRecyclerView.setAdapter(mAdapter);
     }
 
@@ -59,13 +68,16 @@ public class RecyclerViewActivity extends ActionBarActivity {
             case android.R.id.home:
                 finish();
                 return true;
+            case R.id.action_add_card:
+                mAdapter.insert("element", 0);
+                return true;
         }
         return super.onOptionsItemSelected(item);
     }
 
     private void initDataset() {
-        mDataset = new String[60];
-        for (int i = 0; i < 60; i++) {
+        mDataset = new String[3];
+        for (int i = 0; i < 3; i++) {
             mDataset[i] = "This is element #" + i;
         }
     }
