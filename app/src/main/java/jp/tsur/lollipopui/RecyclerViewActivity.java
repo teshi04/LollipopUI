@@ -42,8 +42,6 @@ public class RecyclerViewActivity extends ActionBarActivity {
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(mLayoutManager);
 
-        initDataset();
-
         // specify an adapter (see also next example)
         ArrayList<String> strings = new ArrayList<String>();
         strings.add("element");
@@ -73,12 +71,5 @@ public class RecyclerViewActivity extends ActionBarActivity {
                 return true;
         }
         return super.onOptionsItemSelected(item);
-    }
-
-    private void initDataset() {
-        mDataset = new String[3];
-        for (int i = 0; i < 3; i++) {
-            mDataset[i] = "This is element #" + i;
-        }
     }
 }
