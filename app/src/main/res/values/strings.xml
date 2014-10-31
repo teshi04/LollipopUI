@@ -14,5 +14,7 @@
     <string name="recycler_view">Recycler View</string>
     <string name="title_activity_image_actvity">Image</string>
     <string name="add_card">Add card</string>
+    <string name="title_activity_notification">Notification</string>
+    <string name="notification">notification</string>
 
 </resources>
